@@ -1,10 +1,10 @@
 {
-  "name": "",
+  "name": "@nerdware/ts-type-safety-utils",
   "version": "1.0.0",
-  "description": "",
+  "description": "TypeScript type-guards and other type-safety utils to suit common use cases.",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "Trevor Anderson",
+    "email": "trevor@nerdware.cloud"
   },
   "license": "MIT",
   "engines": {
@@ -24,13 +24,18 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/<REPO_OWNER>/<REPO_NAME>.git"
+    "url": "https://github.com/Nerdware-LLC/ts-type-safety-utils.git"
   },
-  "homepage": "https://github.com/<REPO_OWNER>/<REPO_NAME>#readme",
+  "homepage": "https://github.com/Nerdware-LLC/ts-type-safety-utils#readme",
   "bugs": {
-    "url": "https://github.com/<REPO_OWNER>/<REPO_NAME>/issues"
+    "url": "https://github.com/Nerdware-LLC/ts-type-safety-utils/issues"
   },
-  "keywords": [],
+  "keywords": [
+    "typescript",
+    "type-guards",
+    "utilities",
+    "utils"
+  ],
   "scripts": {
     "lint": "eslint src",
     "postlint": "npm run test:types",
@@ -44,5 +49,23 @@
     "@serverless-guru/prettier-plugin-import-order": {
       "prettier": "^3"
     }
+  },
+  "devDependencies": {
+    "@serverless-guru/prettier-plugin-import-order": "^0.4.2",
+    "@types/node": "^20.11.17",
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/parser": "^7.0.1",
+    "@vitest/coverage-v8": "^1.2.2",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-vitest": "^0.3.22",
+    "prettier": "^3.2.5",
+    "type-fest": "^4.10.2",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2",
+    "vitest-github-actions-reporter": "^0.11.1"
   }
 }
