@@ -8,6 +8,8 @@
 
 **TypeScript type-guards and other type-safety utils for any environment 🎉**<br>ESM ✅ CommonJS ✅ NodeJS ✅ browsers ✅
 
+[![npm package][npm-badge]](https://www.npmjs.com/package/@nerdware/ts-type-safety-utils "View this project on npm")
+[![Test Workflow][gh-test-badge]](.github/workflows/test.yaml "View Test Workflow file")
 [![CodeCov][codecov-badge]](https://codecov.io/gh/Nerdware-LLC/ts-type-safety-utils "View CodeCov Report")
 [![pre-commit][pre-commit-badge]](https://pre-commit.com "pre-commit.com")
 [![semantic-release][semantic-badge]](https://github.com/semantic-release/semantic-release "github.com: semantic-release")
@@ -15,6 +17,8 @@
 
 <!--   BADGE LINKS   -->
 
+[npm-badge]: https://img.shields.io/npm/v/@nerdware/ts-type-safety-utils?logo=npm&label=npm%40latest
+[gh-test-badge]: https://github.com/Nerdware-LLC/ts-type-safety-utils/actions/workflows/test.yaml/badge.svg?branch=main
 [codecov-badge]: https://codecov.io/gh/Nerdware-LLC/ts-type-safety-utils/graph/badge.svg?token=3I4RH7DAZX
 [pre-commit-badge]: https://img.shields.io/badge/pre--commit-F8B424.svg?logo=pre-commit&logoColor=F8B424&labelColor=gray
 [semantic-badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-E10079.svg
