@@ -31,5 +31,4 @@ jobs:
             --tag ${{ github.ref }} \
             --tag $latest_or_next_tag
         env:
-          # TODO Update this secret with your own NPM token
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_PUBLISH_PUBLIC_ORG_SCOPE }}
