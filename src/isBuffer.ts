@@ -1,4 +1,4 @@
-import { root } from "./.internal/root";
+import { root } from "./.internal/root.js";
 
 /** NodeJS `Buffer.isBuffer`, if available. */
 const nativeIsBuffer = root?.Buffer?.isBuffer as BufferConstructor["isBuffer"] | undefined;

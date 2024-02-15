@@ -1,4 +1,4 @@
-import { getTypeSafeError, getErrorMessage } from "./getTypeSafeError";
+import { getTypeSafeError, getErrorMessage } from "./getTypeSafeError.js";
 
 describe("getTypeSafeError()", () => {
   test("returns an Error instance when called with an Error object", () => {

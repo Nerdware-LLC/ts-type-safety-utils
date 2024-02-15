@@ -1,4 +1,4 @@
-import { freeGlobal } from "./freeGlobal";
+import { freeGlobal } from "./freeGlobal.js";
 
 // Detect free variable `globalThis`:
 const freeGlobalThis =

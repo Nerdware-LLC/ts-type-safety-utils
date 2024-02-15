@@ -1,4 +1,4 @@
-import { isError } from "./isError";
+import { isError } from "./isError.js";
 
 describe("isError", () => {
   test("returns true when the input is an object with a tag of '[object Error]'", () => {

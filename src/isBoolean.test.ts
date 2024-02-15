@@ -1,4 +1,4 @@
-import { isBoolean } from "./isBoolean";
+import { isBoolean } from "./isBoolean.js";
 
 describe("isBoolean", () => {
   test("returns true when called with a boolean", () => {

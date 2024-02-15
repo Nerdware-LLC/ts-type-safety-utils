@@ -1,4 +1,4 @@
-import { isArray } from "./isArray";
+import { isArray } from "./isArray.js";
 
 describe("isArray", () => {
   test("returns true when called with an array", () => {

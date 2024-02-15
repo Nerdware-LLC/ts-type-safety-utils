@@ -1,4 +1,4 @@
-import { isPlainObject } from "./isPlainObject";
+import { isPlainObject } from "./isPlainObject.js";
 
 describe("isPlainObject", () => {
   test("returns true when called with a record-like object", () => {
