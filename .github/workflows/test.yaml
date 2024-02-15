@@ -65,9 +65,9 @@ jobs:
         uses: davelosert/vitest-coverage-report-action@v2
 
   release:
-    name: Release if Tests Passed (push-only)
+    name: Release if Tests Passed (push/dispatch only)
     needs: test # only run on push events when tests pass
-    if: github.event_name == 'push' && needs.test.result == 'success'
+    if: github.event_name != 'pull_request' && needs.test.result == 'success'
     uses: ./.github/workflows/release.yaml
     secrets:
       SEMANTIC_RELEASE_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
