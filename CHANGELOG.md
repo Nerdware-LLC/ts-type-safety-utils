@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.0.8](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.0.7...v1.0.8) (2024-02-15)
+
+
+### Bug Fixes
+
+* replace any-param w unknown in isBuffer ([6908707](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/69087071d592467e5cb6be6035d7e365d93f656e))
+
 ## [1.0.7](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.0.6...v1.0.7) (2024-02-15)
 
 
