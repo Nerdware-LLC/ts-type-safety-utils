@@ -1,6 +1,10 @@
 import { safeJsonStringify } from "./safeJsonStringify";
 
 describe("safeJsonStringify", () => {
+  test("stringifies a simple object without errors", () => {
+    expect(safeJsonStringify({ name: "John", age: 30 })).toEqual('{"name":"John","age":30}');
+  });
+
   test("returns stringified JSON without throwing when given BigInt's and circular refs", () => {
     const input: Record<string, unknown> = { a: "A", b: BigInt(1) };
     input.c = input;
