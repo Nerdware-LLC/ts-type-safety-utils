@@ -1,4 +1,4 @@
-import { getTag } from "./.internal/getTag";
+import { getTag } from "./.internal/getTag.js";
 
 /**
  * `Object` type guard function which tests if `value` is a plain JS object (e.g. `{ foo: "bar" }`)

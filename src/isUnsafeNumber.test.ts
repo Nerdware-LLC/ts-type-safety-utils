@@ -1,4 +1,4 @@
-import { isUnsafeNumber } from "./isUnsafeNumber";
+import { isUnsafeNumber } from "./isUnsafeNumber.js";
 
 describe("isUnsafeNumber", () => {
   test(`returns true when called with any "number" argument`, () => {

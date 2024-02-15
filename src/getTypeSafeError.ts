@@ -1,5 +1,5 @@
-import { isString } from "./isString";
-import { safeJsonStringify } from "./safeJsonStringify";
+import { isString } from "./isString.js";
+import { safeJsonStringify } from "./safeJsonStringify.js";
 import type { Class } from "type-fest";
 
 /**

@@ -1,4 +1,4 @@
-import { safeJsonStringify } from "./safeJsonStringify";
+import { safeJsonStringify } from "./safeJsonStringify.js";
 
 describe("safeJsonStringify", () => {
   test("returns stringified JSON without throwing when given BigInt's and circular refs", () => {

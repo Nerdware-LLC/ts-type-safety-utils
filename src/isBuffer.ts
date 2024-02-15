@@ -1,4 +1,4 @@
-import { root, NO_OP } from "./.internal";
+import { root } from "./.internal/root.js";
 
 /** NodeJS `Buffer.isBuffer`, if available. */
 const nativeIsBuffer = root?.Buffer?.isBuffer as BufferConstructor["isBuffer"] | undefined;
@@ -19,4 +19,4 @@ const nativeIsBuffer = root?.Buffer?.isBuffer as BufferConstructor["isBuffer"] |
 export const isBuffer =
   typeof nativeIsBuffer === "function"
     ? nativeIsBuffer
-    : (NO_OP as unknown as BufferConstructor["isBuffer"]);
+    : () => false as unknown as BufferConstructor["isBuffer"];

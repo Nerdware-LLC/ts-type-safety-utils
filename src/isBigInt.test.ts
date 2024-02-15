@@ -1,4 +1,4 @@
-import { isBigInt } from "./isBigInt";
+import { isBigInt } from "./isBigInt.js";
 
 describe("isBigInt", () => {
   test("returns true when called with a BigInt", () => {

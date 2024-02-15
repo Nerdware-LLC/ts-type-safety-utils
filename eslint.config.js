@@ -48,13 +48,7 @@ export default [
       "no-console": ["warn", { allow: ["info", "warn", "error"] }],
       "prefer-const": "warn",
       semi: ["error", "always"],
-      "node/no-missing-import": [
-        "error",
-        {
-          tryExtensions: [".ts"],
-          allowModules: ["type-fest"],
-        },
-      ],
+      "node/no-missing-import": "off",
       "node/no-process-env": "error",
       "node/no-unpublished-import": ["error", { allowModules: ["type-fest"] }],
       "@typescript-eslint/no-explicit-any": "off",

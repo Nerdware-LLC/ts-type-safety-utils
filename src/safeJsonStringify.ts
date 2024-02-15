@@ -1,6 +1,6 @@
-import { isBigInt } from "./isBigInt";
-import { isFunction } from "./isFunction";
-import { isObjectLike } from "./isObjectLike";
+import { isBigInt } from "./isBigInt.js";
+import { isFunction } from "./isFunction.js";
+import { isObjectLike } from "./isObjectLike.js";
 
 /**
  * This function is a safe version of `JSON.stringify` which will not throw
