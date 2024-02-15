@@ -3,6 +3,9 @@ import { root } from "./.internal/root.js";
 /** NodeJS `Buffer.isBuffer`, if available. */
 const nativeIsBuffer = root?.Buffer?.isBuffer as BufferConstructor["isBuffer"] | undefined;
 
+/** no-op if `Buffer.isBuffer` is not available. */
+const noOpIsBuffer = (() => false) as unknown as BufferConstructor["isBuffer"];
+
 /**
  * Checks if `value` is a buffer.
  *
@@ -16,7 +19,5 @@ const nativeIsBuffer = root?.Buffer?.isBuffer as BufferConstructor["isBuffer"] |
  * isBuffer(new Uint8Array(2)) // => false
  * ```
  */
-export const isBuffer =
-  typeof nativeIsBuffer === "function"
-    ? nativeIsBuffer
-    : () => false as unknown as BufferConstructor["isBuffer"];
+export const isBuffer: BufferConstructor["isBuffer"] =
+  typeof nativeIsBuffer === "function" ? nativeIsBuffer : noOpIsBuffer;
