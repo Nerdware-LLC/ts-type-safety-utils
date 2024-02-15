@@ -1,4 +1,4 @@
-import { isBuffer } from "./isBuffer.js";
+import { isBuffer } from "./isBuffer";
 
 // Note: All tests occur in a Node environment, so `Buffer` is available.
 

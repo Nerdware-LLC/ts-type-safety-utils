@@ -1,4 +1,4 @@
-import { isFunction } from "./isFunction.js";
+import { isFunction } from "./isFunction";
 
 describe("isFunction", () => {
   test("returns true when called with a function", () => {

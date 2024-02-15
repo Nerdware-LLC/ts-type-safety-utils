@@ -1,6 +1,6 @@
-import { getTag } from "./.internal/getTag.js";
-import { isObjectLike } from "./isObjectLike.js";
-import { isString } from "./isString.js";
+import { getTag } from "./.internal/getTag";
+import { isObjectLike } from "./isObjectLike";
+import { isString } from "./isString";
 
 /**
  * `Error` type guard function which checks if `value` is an `Error`, `EvalError`, `RangeError`,

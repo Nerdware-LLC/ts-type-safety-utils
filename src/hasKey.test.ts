@@ -1,4 +1,4 @@
-import { hasKey } from "./hasKey.js";
+import { hasKey } from "./hasKey";
 
 describe("hasKey()", () => {
   // STRING KEY

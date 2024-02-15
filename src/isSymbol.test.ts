@@ -1,4 +1,4 @@
-import { isSymbol } from "./isSymbol.js";
+import { isSymbol } from "./isSymbol";
 
 describe("isSymbol", () => {
   test("returns true when called with a Symbol", () => {

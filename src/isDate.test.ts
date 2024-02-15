@@ -1,4 +1,4 @@
-import { isDate } from "./isDate.js";
+import { isDate } from "./isDate";
 
 describe("isDate", () => {
   test("returns true when called with a Date", () => {

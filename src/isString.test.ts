@@ -1,4 +1,4 @@
-import { isString } from "./isString.js";
+import { isString } from "./isString";
 
 describe("isString", () => {
   test("returns true when called with a string", () => {

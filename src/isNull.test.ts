@@ -1,4 +1,4 @@
-import { isNull } from "./isNull.js";
+import { isNull } from "./isNull";
 
 describe("isNull", () => {
   test("returns true when called with null", () => {

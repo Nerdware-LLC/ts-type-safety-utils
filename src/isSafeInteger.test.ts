@@ -1,4 +1,4 @@
-import { isSafeInteger } from "./isSafeInteger.js";
+import { isSafeInteger } from "./isSafeInteger";
 
 describe("isSafeInteger", () => {
   test("returns true when called with a safe integer", () => {
