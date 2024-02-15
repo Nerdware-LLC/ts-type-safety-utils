@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.0.5](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.0.4...v1.0.5) (2024-02-15)
+
+
+### Reverts
+
+* re-implement base 'node' moduleResolution ([b9cf32e](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/b9cf32e323d486e6e3e931ff9f7f44978bc2886e))
+
 ## [1.0.4](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.0.3...v1.0.4) (2024-02-15)
 
 ## [1.0.3](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.0.2...v1.0.3) (2024-02-15)
