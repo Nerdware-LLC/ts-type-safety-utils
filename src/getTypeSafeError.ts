@@ -1,23 +1,22 @@
 import { isString } from "./isString";
 import { safeJsonStringify } from "./safeJsonStringify";
-import type { Class } from "type-fest";
 
 /**
  * type-safety util which guarantees the returned object is an `Error`.
  */
-export const getTypeSafeError = (
+export const getTypeSafeError = <E extends ErrorConstructor>(
   err: unknown,
   {
     ErrorClass,
     fallBackErrMsg,
   }: {
-    ErrorClass?: Class<Error>;
+    ErrorClass?: E;
     fallBackErrMsg?: string;
   } = {}
-): Error => {
+): E["prototype"] => {
   if (err instanceof Error) return err;
 
-  ErrorClass ??= Error;
+  ErrorClass ??= Error as E;
   fallBackErrMsg ||= "An unknown error occurred.";
 
   return new ErrorClass(
