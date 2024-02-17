@@ -6,9 +6,10 @@
  * @example
  * ```ts
  * isString('abc') // => true
- * isString(1) // => false
+ * isString('')   // => true
+ * isString(1)   // => false
  * ```
  */
-export const isString = (arg?: unknown): arg is string => {
-  return typeof arg === "string";
+export const isString = (value?: unknown): value is string => {
+  return typeof value === "string";
 };

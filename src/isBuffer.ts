@@ -1,18 +1,11 @@
 import { root } from "./.internal/root.js";
 
-/**
- * `Buffer.isBuffer` doesn't throw if an argument is not provided, so this
- * type is used instead of `BufferConstructor["isBuffer"]` in order to
- *     1. replace `any` with `unknown`, and
- *     2. better reflect the behavior of the function.
- */
-export type IsBufferWithOptionalArgument = (value?: unknown) => value is Buffer;
-
 /** NodeJS `Buffer.isBuffer`, if available. */
-const nativeIsBuffer = root?.Buffer?.isBuffer as IsBufferWithOptionalArgument | undefined;
+// eslint-disable-next-line @typescript-eslint/unbound-method
+const nativeIsBuffer = root.Buffer?.isBuffer;
 
 /** no-op if `Buffer.isBuffer` is not available. */
-const noOpIsBuffer = (() => false) as IsBufferWithOptionalArgument;
+const noOpIsBuffer = () => false as const;
 
 /**
  * Checks if `value` is a buffer.
@@ -27,5 +20,6 @@ const noOpIsBuffer = (() => false) as IsBufferWithOptionalArgument;
  * isBuffer(new Uint8Array(2)) // => false
  * ```
  */
-export const isBuffer: IsBufferWithOptionalArgument =
-  typeof nativeIsBuffer === "function" ? nativeIsBuffer : noOpIsBuffer;
+export const isBuffer = (typeof nativeIsBuffer === "function"
+  ? nativeIsBuffer
+  : noOpIsBuffer) as unknown as (value?: unknown) => value is Buffer;

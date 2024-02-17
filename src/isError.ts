@@ -14,6 +14,7 @@ export const isError = <ErrType extends Error = Error>(value?: unknown): value i
   return (
     tag === "[object Error]" ||
     tag === "[object DOMException]" ||
-    (isObjectLike(value) && isString((value as any)?.message) && isString((value as any)?.name))
+    (isString((value as { message?: string }).message) &&
+      isString((value as { name?: string }).name))
   );
 };

@@ -36,9 +36,25 @@ describe("getTypeSafeError()", () => {
     expect(result.message).toBe("test");
   });
 
+  test(`returns the provided "err" as-is when its an instance of the provided "ErrorClass"`, () => {
+    class TestErrorExtensionClass extends Error {
+      constructor() {
+        super("test");
+      }
+    }
+
+    const testErrorInstance = new TestErrorExtensionClass();
+
+    const result = getTypeSafeError(testErrorInstance, { ErrorClass: TestErrorExtensionClass });
+
+    expect(result).toBe(testErrorInstance);
+    expect(result).toBeInstanceOf(TestErrorExtensionClass);
+    expect(result.message).toBe("test");
+  });
+
   test(`returns an Error instance with a "message" that includes the stringified payload when called with an object that doesn't contain a "message" property`, () => {
     const input = { test: "test" };
-    const result = getTypeSafeError(input);
+    const result = getTypeSafeError(input, { shouldStringifyUnknownError: true });
     expect(result).toBeInstanceOf(Error);
     expect(result.message).toContain(JSON.stringify(input));
   });
