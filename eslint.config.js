@@ -50,6 +50,11 @@ export default [
       eqeqeq: ["error", "always"],
       "prefer-const": "warn",
       semi: ["error", "always"],
+      "import/named": "off", //                      TS performs this check
+      "import/namespace": "off", //                  TS performs this check
+      "import/default": "off", //                    TS performs this check
+      "import/no-named-as-default": "off", //        TS performs this check
+      "import/no-named-as-default-member": "off", // TS performs this check
       "node/no-missing-import": "off",
       "node/no-process-env": "error",
       "node/no-unsupported-features/es-syntax": "off", // too many false positives
