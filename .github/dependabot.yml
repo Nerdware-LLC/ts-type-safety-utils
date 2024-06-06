@@ -20,7 +20,7 @@ updates:
 
     # Metadata for Dependabot's PRs:
     labels: ["dependabot 🤖"]
-    # TODO You can add a list of "assignees" here.
+    assignees: ["trevor-anderson"]
 
     # Behavior of Dependabot's PRs:
     target-branch: "main"
