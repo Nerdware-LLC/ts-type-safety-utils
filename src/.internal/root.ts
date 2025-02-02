@@ -22,4 +22,4 @@ export const root =
   freeGlobalThis || // prettier-ignore
   freeGlobal ||
   freeSelf ||
-  (Function("return this")() as Partial<typeof globalThis>); // eslint-disable-line @typescript-eslint/no-implied-eval
+  (Function("return this")() as Partial<typeof globalThis>); // eslint-disable-line @typescript-eslint/no-implied-eval,@typescript-eslint/no-unsafe-call

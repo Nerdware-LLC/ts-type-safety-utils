@@ -6,7 +6,7 @@ import { isString } from "./isString.js";
  * `Error` type guard function which checks if `value` is an `Error`, `EvalError`, `RangeError`,
  * `ReferenceError`, `SyntaxError`, `TypeError`, or `URIError` object.
  */
-export const isError = <ErrType extends Error = Error>(value?: unknown): value is ErrType => {
+export const isError = (value?: unknown): value is Error => {
   if (!isObjectLike(value)) return false;
 
   const tag = getTag(value);

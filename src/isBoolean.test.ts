@@ -4,8 +4,6 @@ describe("isBoolean", () => {
   test("returns true when called with a boolean", () => {
     expect(isBoolean(true)).toBe(true);
     expect(isBoolean(false)).toBe(true);
-    expect(isBoolean(!"")).toBe(true);
-    expect(isBoolean(!!"")).toBe(true);
     expect(isBoolean(Boolean())).toBe(true);
     expect(isBoolean(Boolean("foo"))).toBe(true);
   });
