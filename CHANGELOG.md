@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.0.16](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.0.15...v1.0.16) (2025-02-02)
+
+
+### Bug Fixes
+
+* rm `!` bool exprs ([cd5d932](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/cd5d932bdadd2146ec2ab7c6a8ec6c99982aa38f))
+* rm unnecessary generic type arg ([c3fe7ec](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/c3fe7ec9233de261b5adb77f1b58f20364cc46c2))
+
 ## [1.0.16-next.1](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.0.15...v1.0.16-next.1) (2025-02-02)
 
 
