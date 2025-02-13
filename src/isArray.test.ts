@@ -1,29 +1,42 @@
 import { isArray } from "./isArray.js";
 
-describe("isArray", () => {
-  test("returns true when called with an array", () => {
-    expect(isArray([])).toBe(true);
-    expect(isArray(Array(0))).toBe(true);
-  });
+test.each(
+  [
+    [],
+    ["x"],
+    Array(0),
+    Array(1),
+    Array.from(new Set()),
+    Array.from({ length: 1 }), //
+  ].map((el) => [el])
+)("returns true when called with %o", (input) => {
+  expect(isArray(input)).toBe(true);
+});
 
-  test("returns false when called with a non-array argument", () => {
-    expect(isArray()).toBe(false);
-    expect(isArray("object")).toBe(false);
-    expect(isArray("")).toBe(false);
-    expect(isArray(1)).toBe(false);
-    expect(isArray(0)).toBe(false);
-    expect(isArray(NaN)).toBe(false);
-    expect(isArray(true)).toBe(false);
-    expect(isArray(false)).toBe(false);
-    expect(isArray(null)).toBe(false);
-    expect(isArray(undefined)).toBe(false);
-    expect(isArray({})).toBe(false);
-    expect(isArray(new Date())).toBe(false);
-    expect(isArray(new Map())).toBe(false);
-    expect(isArray(new Set())).toBe(false);
-    expect(isArray(Buffer.from(""))).toBe(false);
-    expect(isArray(Symbol(""))).toBe(false);
-    expect(isArray(BigInt(1))).toBe(false);
-    expect(isArray(() => "")).toBe(false);
-  });
+test.each(
+  [
+    undefined,
+    null,
+    {},
+    { length: 0 },
+    { length: 1, 0: "a" },
+    { length: -1 },
+    true,
+    false,
+    "",
+    "object",
+    1,
+    0,
+    NaN,
+    new Map(),
+    new Set(),
+    new Date(),
+    /x/,
+    Buffer.from(""),
+    Symbol("x"),
+    BigInt(1),
+    () => "",
+  ].map((el) => [el])
+)("returns false when called with %o", (input) => {
+  expect(isArray(input)).toBe(false);
 });

@@ -4,49 +4,55 @@ import { safeJsonStringify } from "./safeJsonStringify.js";
 import type { Class } from "type-fest";
 
 /**
- * type-safety util which guarantees the returned object is an instance of the
- * provided `ErrorClass` (default: {@link Error|`Error`}).
+ * type-safety util which uses the provided `value` to return an instance of
+ * the provided `ErrorClass` (default: {@link Error|`Error`}).
  */
-export const getTypeSafeError = <E extends Class<Error>>(
-  err: unknown,
+export const getTypeSafeError = <ErrType extends Class<Error, Parameters<ErrorConstructor>>>(
+  value: unknown,
   {
-    ErrorClass,
-    fallBackErrMsg,
-    shouldStringifyUnknownError,
+    ErrorClass = Error as unknown as ErrType,
+    fallbackErrMsg = "An unknown error occurred.",
+    shouldStringifyUnknownError = false,
   }: {
-    ErrorClass?: E;
-    fallBackErrMsg?: string;
+    ErrorClass?: ErrType;
+    fallbackErrMsg?: string;
     shouldStringifyUnknownError?: boolean;
   } = {}
-): InstanceType<E> => {
-  // Set default ErrorClass to `Error`
-  ErrorClass ??= Error as unknown as E;
+): InstanceType<ErrType> => {
+  // If `value` is already an instance of `ErrorClass`, return it as-is
+  if (value instanceof ErrorClass) return value as InstanceType<ErrType>;
 
-  if (err instanceof ErrorClass) return err as InstanceType<E>;
+  // If `value` is a string, use it as the error message
+  if (isString(value)) return new ErrorClass(value) as InstanceType<ErrType>;
 
-  // For the err msg, try `err` and `err?.message`
-  let errorMessage = getErrorMessage(err);
+  // If `value` is none of the above, initialize a new Error with the fallback error message
+  let returnedError = new ErrorClass(fallbackErrMsg);
 
-  // If it's falsey, use the fallback error message
-  if (!errorMessage) {
-    errorMessage = fallBackErrMsg || "An unknown error occurred.";
+  // If `value` is object-like, copy over any enumerable own-properties (may include "message")
+  if (isObjectLike(value)) {
+    returnedError = Object.assign(returnedError, value);
 
-    // If configured to do so, stringify the unknown error and append it to the error message
-    if (shouldStringifyUnknownError) {
-      errorMessage += `\nOriginal error payload: ${safeJsonStringify(err)}`;
+    // If `value.message` is a string, return the new error here
+    if (isString((value as { message?: string }).message)) {
+      return returnedError as InstanceType<ErrType>;
     }
   }
 
-  return new ErrorClass(errorMessage) as InstanceType<E>;
+  /* At this point, the value-type is deemed "unhandled" — if configured to
+  do so, stringify the unknown value and append it to the error message. */
+  if (shouldStringifyUnknownError)
+    returnedError.message += `\nOriginal error: ${safeJsonStringify(value)}`;
+
+  return returnedError as InstanceType<ErrType>;
 };
 
 /**
  * Attempts to parse an error message from an unknown error.
  */
-export const getErrorMessage = (err: unknown): string | undefined => {
-  return isString(err)
-    ? err
-    : isObjectLike(err) && isString((err as { message?: string }).message)
-      ? (err as { message: string }).message
+export const getErrorMessage = (value: unknown): string | undefined => {
+  return isString(value)
+    ? value
+    : isObjectLike(value) && isString((value as { message?: string }).message)
+      ? (value as { message: string }).message
       : undefined;
 };
