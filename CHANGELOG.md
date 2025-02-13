@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+# [1.1.0-next.1](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.0.16...v1.1.0-next.1) (2025-02-13)
+
+
+### Features
+
+* add Object.assign for better runtime behavior ([2483146](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/2483146854e52044129b2daaa2503c93cad33a81))
+
 ## [1.0.16](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.0.15...v1.0.16) (2025-02-02)
 
 
