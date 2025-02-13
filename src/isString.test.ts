@@ -1,29 +1,34 @@
 import { isString } from "./isString.js";
 
-describe("isString", () => {
-  test("returns true when called with a string", () => {
-    expect(isString("foo")).toBe(true);
-    expect(isString(``)).toBe(true);
-    expect(isString(String())).toBe(true);
-  });
+test.each(
+  [
+    "foo",
+    String(), //
+  ].map((el) => [el])
+)("returns true when called with %o", (input) => {
+  expect(isString(input)).toBe(true);
+});
 
-  test("returns false when called with a non-string argument", () => {
-    expect(isString()).toBe(false);
-    expect(isString(1)).toBe(false);
-    expect(isString(0)).toBe(false);
-    expect(isString(NaN)).toBe(false);
-    expect(isString(true)).toBe(false);
-    expect(isString(false)).toBe(false);
-    expect(isString(null)).toBe(false);
-    expect(isString(undefined)).toBe(false);
-    expect(isString({})).toBe(false);
-    expect(isString([])).toBe(false);
-    expect(isString(new Date())).toBe(false);
-    expect(isString(new Map())).toBe(false);
-    expect(isString(new Set())).toBe(false);
-    expect(isString(Buffer.from(""))).toBe(false);
-    expect(isString(Symbol(""))).toBe(false);
-    expect(isString(BigInt(1))).toBe(false);
-    expect(isString(() => "")).toBe(false);
-  });
+test.each(
+  [
+    undefined,
+    null,
+    {},
+    [],
+    true,
+    false,
+    1,
+    0,
+    NaN,
+    new Map(),
+    new Set(),
+    new Date(),
+    /x/,
+    Buffer.from(""),
+    Symbol("x"),
+    BigInt(1),
+    () => "",
+  ].map((el) => [el])
+)("returns false when called with %o", (input) => {
+  expect(isString(input)).toBe(false);
 });

@@ -1,29 +1,35 @@
 import { isBigInt } from "./isBigInt.js";
 
-describe("isBigInt", () => {
-  test("returns true when called with a BigInt", () => {
-    expect(isBigInt(BigInt(1))).toBe(true);
-    expect(isBigInt(BigInt(0))).toBe(true);
-  });
+test.each(
+  [
+    BigInt(0),
+    BigInt(1), //
+  ].map((el) => [el])
+)("returns true when called with %o", (input) => {
+  expect(isBigInt(input)).toBe(true);
+});
 
-  test("returns false when called with a non-BigInt argument", () => {
-    expect(isBigInt()).toBe(false);
-    expect(isBigInt("bigint")).toBe(false);
-    expect(isBigInt("")).toBe(false);
-    expect(isBigInt(1)).toBe(false);
-    expect(isBigInt(0)).toBe(false);
-    expect(isBigInt(NaN)).toBe(false);
-    expect(isBigInt(true)).toBe(false);
-    expect(isBigInt(false)).toBe(false);
-    expect(isBigInt(null)).toBe(false);
-    expect(isBigInt(undefined)).toBe(false);
-    expect(isBigInt({})).toBe(false);
-    expect(isBigInt([])).toBe(false);
-    expect(isBigInt(new Date())).toBe(false);
-    expect(isBigInt(new Map())).toBe(false);
-    expect(isBigInt(new Set())).toBe(false);
-    expect(isBigInt(Buffer.from(""))).toBe(false);
-    expect(isBigInt(Symbol(""))).toBe(false);
-    expect(isBigInt(() => "")).toBe(false);
-  });
+test.each(
+  [
+    undefined,
+    null,
+    {},
+    [],
+    true,
+    false,
+    "",
+    "bigint",
+    1,
+    0,
+    NaN,
+    new Map(),
+    new Set(),
+    new Date(),
+    /x/,
+    Buffer.from(""),
+    Symbol("x"),
+    () => "",
+  ].map((el) => [el])
+)("returns false when called with %o", (input) => {
+  expect(isBigInt(input)).toBe(false);
 });

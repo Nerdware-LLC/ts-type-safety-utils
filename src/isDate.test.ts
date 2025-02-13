@@ -1,31 +1,36 @@
 import { isDate } from "./isDate.js";
 
-describe("isDate", () => {
-  test("returns true when called with a Date", () => {
-    expect(isDate(new Date())).toBe(true);
-    expect(isDate(new Date(2020, 1, 1))).toBe(true);
-  });
+test.each(
+  [
+    new Date(),
+    new Date(2020, 1, 1), //
+  ].map((el) => [el])
+)("returns true when called with %o", (input) => {
+  expect(isDate(input)).toBe(true);
+});
 
-  test("returns false when called with a non-Date argument", () => {
-    expect(isDate()).toBe(false);
-    expect(isDate("object")).toBe(false);
-    expect(isDate("")).toBe(false);
-    expect(isDate(1)).toBe(false);
-    expect(isDate(0)).toBe(false);
-    expect(isDate(NaN)).toBe(false);
-    expect(isDate(true)).toBe(false);
-    expect(isDate(false)).toBe(false);
-    expect(isDate(null)).toBe(false);
-    expect(isDate(undefined)).toBe(false);
-    expect(isDate({})).toBe(false);
-    expect(isDate([])).toBe(false);
-    expect(isDate(Date.now())).toBe(false);
-    expect(isDate(new Date("NOPE"))).toBe(false);
-    expect(isDate(new Map())).toBe(false);
-    expect(isDate(new Set())).toBe(false);
-    expect(isDate(Buffer.from(""))).toBe(false);
-    expect(isDate(Symbol(""))).toBe(false);
-    expect(isDate(BigInt(1))).toBe(false);
-    expect(isDate(() => "")).toBe(false);
-  });
+test.each(
+  [
+    undefined,
+    null,
+    {},
+    [],
+    true,
+    false,
+    "",
+    "object",
+    1,
+    0,
+    NaN,
+    new Map(),
+    new Set(),
+    new Date("NOPE"),
+    /x/,
+    Buffer.from(""),
+    Symbol("x"),
+    BigInt(1),
+    () => "",
+  ].map((el) => [el])
+)("returns false when called with %o", (input) => {
+  expect(isDate(input)).toBe(false);
 });
