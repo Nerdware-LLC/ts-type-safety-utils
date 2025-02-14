@@ -1,3 +1,4 @@
+export * from "./getErrorMessage.js";
 export * from "./getTypeSafeError.js";
 export * from "./hasKey.js";
 export * from "./hasKeys.js";

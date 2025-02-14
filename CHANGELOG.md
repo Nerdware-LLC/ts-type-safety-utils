@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+# [1.2.0-next.1](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.1.0...v1.2.0-next.1) (2025-02-14)
+
+
+### Features
+
+* add index signature to the returned err type ([f9ee2fc](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/f9ee2fc1b32945dd8729fbab4bc9e038604f0b09))
+
 # [1.1.0](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.0.16...v1.1.0) (2025-02-13)
 
 

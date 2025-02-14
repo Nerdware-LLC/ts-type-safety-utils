@@ -4,26 +4,35 @@ import { safeJsonStringify } from "./safeJsonStringify.js";
 import type { Class } from "type-fest";
 
 /**
- * type-safety util which uses the provided `value` to return an instance of
- * the provided `ErrorClass` (default: {@link Error|`Error`}).
+ * Type-safety util function which uses the provided `value` to return an instance
+ * of the provided `ErrorClass` (default: {@link Error}). To facilitate additional
+ * processing of the returned Error, its type is augmented with an index signature
+ * to allow for arbitrary properties of type `unknown`.
+ *
+ * @template ErrorClassType - A class with a constructor that returns an Error.
+ * The first argument of the constructor must be a `string` to be compatible with
+ * the default `Error` constructor.
  */
-export const getTypeSafeError = <ErrType extends Class<Error, Parameters<ErrorConstructor>>>(
+export const getTypeSafeError = <ErrorClassType extends Class<Error, [string]>>(
   value: unknown,
   {
-    ErrorClass = Error as unknown as ErrType,
+    ErrorClass = Error as unknown as ErrorClassType,
     fallbackErrMsg = "An unknown error occurred.",
     shouldStringifyUnknownError = false,
   }: {
-    ErrorClass?: ErrType;
+    ErrorClass?: ErrorClassType;
     fallbackErrMsg?: string;
     shouldStringifyUnknownError?: boolean;
   } = {}
-): InstanceType<ErrType> => {
+): InstanceType<ErrorClassType> & Record<PropertyKey, unknown> => {
+  // Type of the returned Error augmented with an index signature
+  type ReturnedError = InstanceType<ErrorClassType> & Record<PropertyKey, unknown>;
+
   // If `value` is already an instance of `ErrorClass`, return it as-is
-  if (value instanceof ErrorClass) return value as InstanceType<ErrType>;
+  if (value instanceof ErrorClass) return value as ReturnedError;
 
   // If `value` is a string, use it as the error message
-  if (isString(value)) return new ErrorClass(value) as InstanceType<ErrType>;
+  if (isString(value)) return new ErrorClass(value) as ReturnedError;
 
   // If `value` is none of the above, initialize a new Error with the fallback error message
   let returnedError = new ErrorClass(fallbackErrMsg);
@@ -34,7 +43,7 @@ export const getTypeSafeError = <ErrType extends Class<Error, Parameters<ErrorCo
 
     // If `value.message` is a string, return the new error here
     if (isString((value as { message?: string }).message)) {
-      return returnedError as InstanceType<ErrType>;
+      return returnedError as ReturnedError;
     }
   }
 
@@ -43,16 +52,5 @@ export const getTypeSafeError = <ErrType extends Class<Error, Parameters<ErrorCo
   if (shouldStringifyUnknownError)
     returnedError.message += `\nOriginal error: ${safeJsonStringify(value)}`;
 
-  return returnedError as InstanceType<ErrType>;
-};
-
-/**
- * Attempts to parse an error message from an unknown error.
- */
-export const getErrorMessage = (value: unknown): string | undefined => {
-  return isString(value)
-    ? value
-    : isObjectLike(value) && isString((value as { message?: string }).message)
-      ? (value as { message: string }).message
-      : undefined;
+  return returnedError as ReturnedError;
 };
