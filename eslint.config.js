@@ -1,4 +1,3 @@
-// @ts-check
 import eslintJS from "@eslint/js";
 import stylisticPlugin from "@stylistic/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier";
@@ -9,7 +8,7 @@ import globals from "globals";
 import tsEslint from "typescript-eslint";
 
 export default tsEslint.config(
-  ////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////
   // ALL FILES
   {
     files: ["src/**/*.ts", "./*.[tj]s"],
@@ -63,6 +62,14 @@ export default tsEslint.config(
       "import-x/namespace": "off",
       "import-x/no-named-as-default-member": "off",
       "import-x/no-unresolved": "off",
+      "import-x/order": [
+        "warn",
+        {
+          "groups": ["builtin", "external", "internal", "parent", "sibling", "type"], // prettier-ignore
+          "alphabetize": { order: "asc", orderImportKind: "desc" },
+          "newlines-between": "never",
+        },
+      ],
 
       // RULES: n (eslint-plugin-n)
       "n/no-missing-import": "off", // Does not work with path aliases
@@ -106,5 +113,5 @@ export default tsEslint.config(
       "@typescript-eslint/no-explicit-any": "off",
     },
   }
-  ////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////
 );
