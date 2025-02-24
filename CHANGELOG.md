@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.2.1-next.1](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.2.0...v1.2.1-next.1) (2025-02-24)
+
 # [1.2.0](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.1.0...v1.2.0) (2025-02-14)
 
 
