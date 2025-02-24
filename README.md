@@ -113,17 +113,17 @@ All files, scripts, and source code contained herein are open-source software li
 
 See [LICENSE](/LICENSE) for more information.
 
-<div align="center" style="margin-top:35px;">
+<div align="center">
 
 ## 💬 Contact
 
-Trevor Anderson — [Trevor@Nerdware.cloud](mailto:trevor@nerdware.cloud) — [@TeeRevTweets](https://twitter.com/teerevtweets)
+Trevor Anderson — [Trevor@Nerdware.cloud](mailto:trevor@nerdware.cloud) — [@trevor-anderson](https://github.com/trevor-anderson)
 
+[<img src="https://github.com/trevor-anderson/trevor-anderson/blob/main/assets/github_logo_white.svg" height="40" alt="Check out Nerdware on GitHub" />](https://github.com/Nerdware-LLC)
+&emsp;
 [<img src="https://github.com/trevor-anderson/trevor-anderson/blob/main/assets/YouTube_icon_circle.svg" height="40" alt="Check out Nerdware on YouTube" />](https://www.youtube.com/@nerdware-io)
 &emsp;
 [<img src="https://github.com/trevor-anderson/trevor-anderson/blob/main/assets/LinkedIn_icon_circle.svg" height="40" alt="Trevor Anderson's LinkedIn" />](https://www.linkedin.com/in/meet-trevor-anderson/)
-&emsp;
-[<img src="https://github.com/trevor-anderson/trevor-anderson/blob/main/assets/Twitter_icon_circle.svg" height="40" alt="Trevor Anderson's Twitter" />](https://twitter.com/TeeRevTweets)
 &emsp;
 [<img src="https://github.com/trevor-anderson/trevor-anderson/blob/main/assets/email_icon_circle.svg" height="40" alt="Email Trevor Anderson" />](mailto:trevor@nerdware.cloud)
 
