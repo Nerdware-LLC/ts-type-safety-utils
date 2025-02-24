@@ -1,0 +1,21 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["tsconfig**.json"],
+      "url": "https://json.schemastore.org/tsconfig.json"
+    }
+  ],
+
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  "vsicons.associations.files": [
+    // https://github.com/vscode-icons/vscode-icons/blob/master/src/iconsManifest/supportedExtensions.ts
+    {
+      "icon": "tsconfig",
+      "filename": true,
+      "filenamesGlob": ["tsconfig", "tsconfig.build-cjs", "tsconfig.build-esm"],
+      "extensionsGlob": ["json"],
+      "format": "FileFormat.svg"
+    }
+  ]
+}
