@@ -4,38 +4,25 @@
   "include": ["src/**/*", "./*"],
 
   "compilerOptions": {
-    // Language and Environment:
-    "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": true,
-
-    // Modules:
+    "declaration": true,
+    "esModuleInterop": true,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "NodeNext",
     "moduleResolution": "nodenext",
-    "resolveJsonModule": true,
-    "types": ["node", "vitest/globals"],
-
-    // Emit:
     "noEmit": true,
     "noEmitOnError": true,
-
-    // Completeness:
-    "skipLibCheck": false,
-
-    // Output Formatting:
-    "declaration": true,
     "noErrorTruncation": true,
-
-    // Interop Constraints:
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-
-    // Type Checking:
-    "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
-    "strict": true
+    "resolveJsonModule": true,
+    "skipLibCheck": false,
+    "strict": true,
+    "target": "ESNext",
+    "types": ["node", "vitest/globals"]
   }
 }
