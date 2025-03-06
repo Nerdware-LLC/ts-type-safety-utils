@@ -1,9 +1,9 @@
 import eslintJS from "@eslint/js";
 import stylisticPlugin from "@stylistic/eslint-plugin";
+import vitestPlugin from "@vitest/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import-x";
 import nodePlugin from "eslint-plugin-n";
-import vitestPlugin from "eslint-plugin-vitest";
 import globals from "globals";
 import tsEslint from "typescript-eslint";
 
@@ -28,6 +28,16 @@ export default tsEslint.config(
       "@typescript-eslint": tsEslint.plugin,
       "import-x": importPlugin,
       "n": nodePlugin,
+    },
+    settings: {
+      "import-x/extensions": [".ts", ".js"],
+      "import-x/parsers": {
+        "@typescript-eslint/parser": [".ts", ".js"],
+      },
+      "import-x/resolver": {
+        node: { extensions: [".ts", ".js"] },
+        typescript: { project: ["tsconfig.json"] },
+      },
     },
     rules: {
       // MERGE PRESETS:
@@ -82,16 +92,6 @@ export default tsEslint.config(
 
       // RULES: eslint-config-prettier (must be last to remove rules that conflict with prettier)
       ...eslintConfigPrettier.rules,
-    },
-    settings: {
-      "import-x/extensions": [".ts", ".js"],
-      "import-x/parsers": {
-        "@typescript-eslint/parser": [".ts", ".js"],
-      },
-      "import-x/resolver": {
-        node: { extensions: [".ts", ".js"] },
-        typescript: { project: ["tsconfig.json"] },
-      },
     },
   },
   ////////////////////////////////////////////////////////////////
