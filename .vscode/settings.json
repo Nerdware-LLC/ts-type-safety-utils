@@ -14,8 +14,9 @@
       "icon": "tsconfig",
       "filename": true,
       "filenamesGlob": ["tsconfig", "tsconfig.build-cjs", "tsconfig.build-esm"],
+      "extensions": [],
       "extensionsGlob": ["json"],
-      "format": "FileFormat.svg"
+      "format": "svg"
     }
   ]
 }
