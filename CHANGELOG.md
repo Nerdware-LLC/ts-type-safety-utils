@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+# [1.3.0-next.1](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.2.3-next.1...v1.3.0-next.1) (2025-07-29)
+
+
+### Features
+
+* add `shouldPreserveName` param+behavior ([f94e465](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/f94e465abb5b6b8c0f6da8fedc20ec78d25a8a8c))
+
 ## [1.2.3-next.1](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.2.2...v1.2.3-next.1) (2025-07-29)
 
 
