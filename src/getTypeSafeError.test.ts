@@ -47,6 +47,60 @@ test(`returns the provided value as-is when it's an instance of the provided "Er
   expect(result.message).toBe(INPUT_MESSAGE);
 });
 
+test(`returns an instance of the "ErrorClass" even when called with an Error instance`, () => {
+  class TestErrorExtensionClass extends Error {}
+
+  const baseErrorInstance = new Error("Foo error message");
+
+  const result = getTypeSafeError(baseErrorInstance, { ErrorClass: TestErrorExtensionClass });
+
+  expect(result).toBeInstanceOf(TestErrorExtensionClass);
+  expect(result.message).toBe(baseErrorInstance.message);
+});
+
+test(`preserves all own-properties of the provided value when it is an Error instance`, () => {
+  class TestErrorExtensionClass extends Error {
+    fooCustomProp = "bar";
+  }
+
+  const baseErrorInstance = new Error("Foo error message");
+
+  const result = getTypeSafeError(baseErrorInstance, { ErrorClass: TestErrorExtensionClass });
+
+  expect(result).toBeInstanceOf(TestErrorExtensionClass);
+  expect(result.message).toBe(baseErrorInstance.message);
+  expect(result.fooCustomProp).toBe("bar");
+});
+
+test(`preserves all own-properties of the provided value when it is object-like`, () => {
+  class TestErrorExtensionClass extends Error {
+    foo = "class-provided-foo";
+  }
+
+  const objectValue = {
+    message: "Object-like error message",
+    foo: "custom-foo", // <-- Should override the class property
+    bar: "custom-bar",
+  };
+
+  const arrayObject: Array<unknown> = [];
+  Object.defineProperties(arrayObject, Object.getOwnPropertyDescriptors(objectValue));
+
+  // Arrange an array of object-like values to test
+  [
+    objectValue, //
+    arrayObject,
+  ].forEach((objectLikeValue) => {
+    // Act
+    const result = getTypeSafeError(objectLikeValue, { ErrorClass: TestErrorExtensionClass });
+    // Assert
+    expect(result).toBeInstanceOf(TestErrorExtensionClass);
+    expect(result.message).toBe(objectValue.message);
+    expect(result.foo).toBe("custom-foo");
+    expect(result.bar).toBe("custom-bar");
+  });
+});
+
 test.each(UNHANDLED_VALUE_TYPES)(
   `returns an instance of the provided "ErrorClass" when called with %o`,
   (input) => {
