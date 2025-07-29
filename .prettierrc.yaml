@@ -3,8 +3,10 @@ arrowParens: "always"
 bracketSameLine: false
 bracketSpacing: true
 embeddedLanguageFormatting: "auto"
+experimentalOperatorPosition: "start"
 htmlWhitespaceSensitivity: "css"
 jsxSingleQuote: false
+objectWrap: "preserve"
 quoteProps: "consistent"
 semi: true
 singleAttributePerLine: false

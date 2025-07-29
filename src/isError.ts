@@ -12,9 +12,9 @@ export const isError = (value?: unknown): value is Error => {
   const tag = getTag(value);
 
   return (
-    tag === "[object Error]" ||
-    tag === "[object DOMException]" ||
-    (isString((value as { message?: string }).message) &&
-      isString((value as { name?: string }).name))
+    tag === "[object Error]"
+    || tag === "[object DOMException]"
+    || (isString((value as { message?: string }).message)
+      && isString((value as { name?: string }).name))
   );
 };
