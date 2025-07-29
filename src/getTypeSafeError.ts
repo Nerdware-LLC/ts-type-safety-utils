@@ -35,11 +35,12 @@ export const getTypeSafeError = <ErrorClassType extends Class<Error, [string]>>(
   if (isString(value)) return new ErrorClass(value) as ReturnedError;
 
   // If `value` is none of the above, initialize a new Error with the fallback error message
-  let returnedError = new ErrorClass(fallbackErrMsg);
+  const returnedError = new ErrorClass(fallbackErrMsg);
 
-  // If `value` is object-like, copy over any enumerable own-properties (may include "message")
+  // If `value` is object-like, copy over all own-properties
   if (isObjectLike(value)) {
-    returnedError = Object.assign(returnedError, value);
+    // Object.assign only copies enumerable props, and Error.prototype.message is not enumerable
+    Object.defineProperties(returnedError, Object.getOwnPropertyDescriptors(value));
 
     // If `value.message` is a string, return the new error here
     if (isString((value as { message?: string }).message)) {
