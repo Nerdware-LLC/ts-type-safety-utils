@@ -18,10 +18,14 @@ export const getTypeSafeError = <ErrorClassType extends Class<Error, [string]>>(
   {
     ErrorClass = Error as unknown as ErrorClassType,
     fallbackErrMsg = "An unknown error occurred.",
+    shouldPreserveName = false,
     shouldStringifyUnknownError = false,
   }: {
     ErrorClass?: ErrorClassType;
     fallbackErrMsg?: string;
+    /** Set to `true` to preserve the `name` property of the `value` argument (if one exists). */
+    shouldPreserveName?: boolean;
+    /** Set to `true` to stringify the `value` and append it to `message` as fallback behavior. */
     shouldStringifyUnknownError?: boolean;
   } = {}
 ): InstanceType<ErrorClassType> & Record<PropertyKey, unknown> => {
@@ -41,6 +45,9 @@ export const getTypeSafeError = <ErrorClassType extends Class<Error, [string]>>(
   if (isObjectLike(value)) {
     // Object.assign only copies enumerable props, and Error.prototype.message is not enumerable
     Object.defineProperties(returnedError, Object.getOwnPropertyDescriptors(value));
+
+    // Unless `shouldPreserveName` is true, ensure `name` reflects the ErrorClass name
+    if (!shouldPreserveName) returnedError.name = ErrorClass.name;
 
     // If `value.message` is a string, return the new error here
     if (isString((value as { message?: string }).message)) {
