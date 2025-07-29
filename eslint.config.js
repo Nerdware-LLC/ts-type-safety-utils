@@ -1,3 +1,5 @@
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import eslintJS from "@eslint/js";
 import stylisticPlugin from "@stylistic/eslint-plugin";
 import vitestPlugin from "@vitest/eslint-plugin";
@@ -20,7 +22,9 @@ export default tsEslint.config(
       parser: tsEslint.parser,
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: import.meta.dirname,
+        tsconfigRootDir: dirname(fileURLToPath(import.meta.url)),
+        /* Note: use `tsconfigRootDir: import.meta.dirname` once "engines.node"
+          gets bumped to ">=22.0.0" (NodeJS v20 will reach EOL on April 30, 2026). */
       },
     },
     plugins: {
@@ -82,9 +86,9 @@ export default tsEslint.config(
       ],
 
       // RULES: n (eslint-plugin-n)
-      "n/no-missing-import": "off", // Does not work with path aliases
+      "n/no-missing-import": ["error", { ignoreTypeImport: true }],
       "n/no-process-env": "error",
-      "n/no-unpublished-import": ["error", { allowModules: ["type-fest"] }],
+      "n/no-unpublished-import": ["error", { ignoreTypeImport: true }],
 
       // RULES: @typescript-eslint (typescript-eslint)
       "@typescript-eslint/array-type": ["error", { default: "generic" }],
@@ -106,6 +110,7 @@ export default tsEslint.config(
     },
     rules: {
       ...vitestPlugin.configs.recommended.rules,
+      "vitest/consistent-test-it": ["error", { fn: "test" }],
       "vitest/no-disabled-tests": "warn",
       "vitest/no-focused-tests": "warn",
       "vitest/valid-expect": "warn",
