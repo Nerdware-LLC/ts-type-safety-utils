@@ -1,6 +1,6 @@
 {
   "name": "@nerdware/ts-type-safety-utils",
-  "version": "1.2.2",
+  "version": "1.2.3-next.1",
   "description": "TypeScript type-guards and other type-safety utils to suit common use cases.",
   "author": {
     "name": "Trevor Anderson",

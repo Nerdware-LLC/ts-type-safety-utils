@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.2.3-next.1](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.2.2...v1.2.3-next.1) (2025-07-29)
+
+
+### Bug Fixes
+
+* add verbatimModuleSyntax option to tsconfig.build-cjs.json ([0d2c0de](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/0d2c0dea030c0ec15ff0202cb611b01615470264))
+* ensure all own-properties are copied to the returned error instance ([034aedd](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/034aedd5b83889b3d6fb4ee45aa4754c5544e717))
+* update editorconfig and prettierrc for consistent formatting rules ([b242bd9](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/b242bd9f988f02748783ffe4c0ffa3852649de48))
+* update eslint config for Nodejs compat and improve import rules ([cae849f](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/cae849fd23975401f36120bd75a76e6b5f7e8417))
+* update file format for tsconfig icon in VSCode settings ([b545b28](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/b545b28935d7d30d7d9b8d857ed6de8c46db2985))
+* update module and moduleResolution options in tsconfig.json ([c2dd472](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/c2dd4725e1b27d857154e2f8946ffe1f5467f842))
+
 ## [1.2.2](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.2.1...v1.2.2) (2025-03-06)
 
 ## [1.2.2-next.1](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.2.1...v1.2.2-next.1) (2025-03-06)
