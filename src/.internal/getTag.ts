@@ -10,7 +10,7 @@ export const getTag = (value?: unknown): string => {
   both `null` and `undefined`, thereby ensuring only 1 comparison is needed
   to check for both `null` and `undefined`. */
 
-  // eslint-disable-next-line eqeqeq
+  // eslint-disable-next-line eqeqeq -- Intentional use of loose equality
   return value == null
     ? value === undefined
       ? "[object Undefined]"
