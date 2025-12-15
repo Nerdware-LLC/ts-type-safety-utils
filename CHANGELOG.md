@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.3.1](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.3.0...v1.3.1) (2025-12-15)
+
+
+### Bug Fixes
+
+* comment out engine-strict in .npmrc ([5406f2c](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/5406f2c1a79945e1fb651f87153ee9993873a710))
+* downgrade minimum npm version requirement to 10.0.0 ([3085627](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/30856274c2c4134a4e474810474ceda1343efeab))
+* ensure '.internal' dir is picked up by ts ([a1f9862](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/a1f98623422b4607a1a5189a68afa42217cad607))
+* rm '.npmrc' for now until new '.nvmrc' is merged into main ([7a2d39f](https://github.com/Nerdware-LLC/ts-type-safety-utils/commit/7a2d39f2761afa6e9cc0c04d1d92251cc9e15008))
+
 # [1.3.0](https://github.com/Nerdware-LLC/ts-type-safety-utils/compare/v1.2.2...v1.3.0) (2025-07-29)
 
 
